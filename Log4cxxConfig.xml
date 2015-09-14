@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="ConsoleAppend" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="LogFileAppend" class="org.apache.log4j.FileAppender">
+        <param name="file" value="MyLogFile.log" />
+        <param name="append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %c{1} - %m%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <priority value="all" />
+        <appender-ref ref="ConsoleAppend"/>
+    </root>
+
+    <category name="MainFunction" >
+        <priority value ="all" />
+        <appender-ref ref="LogFileAppend" />
+    </category>
+
+    <category name="AcceptorLoopFunction" >
+        <priority value ="all" />
+        <appender-ref ref="LogFileAppend" />
+    </category>
+
+    <category name="RequestLoopFunction" >
+        <priority value ="all" />
+        <appender-ref ref="LogFileAppend" />
+    </category>
+
+    <category name="ResponseLoopFunction" >
+        <priority value ="all" />
+        <appender-ref ref="LogFileAppend" />
+    </category>
+
+    <category name="DisconnectClientFunction" >
+        <priority value ="all" />
+        <appender-ref ref="LogFileAppend" />
+    </category>
+
+</log4j:configuration>
